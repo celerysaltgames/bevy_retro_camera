@@ -2,7 +2,7 @@ use bevy::prelude::{App, Msaa, Plugin};
 use bevy::render::texture::{ImageSampler, ImageSettings};
 
 
-pub struct RetroCameraBundle;
+pub struct RetroCameraPlugin;
 
 impl Plugin for RetroCameraPlugin {
     fn build(&self, app: &mut App) {
