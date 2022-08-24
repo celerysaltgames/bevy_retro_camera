@@ -12,7 +12,7 @@ repository = "https://github.com/celerysaltgames/bevy_retro_camera"
 homepage = "https://github.com/celerysaltgames/bevy_retro_camera"
 
 [dependencies]
-bevy = { version = "0.8", default-features = false, features = ["bevy_render"] }
+bevy = { version = "0.8", default-features = false, features = ["bevy_render", "bevy_core_pipeline"] }
 
 [dev-dependencies]
 bevy = "0.8"

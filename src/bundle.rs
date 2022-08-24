@@ -1,6 +1,7 @@
 use bevy::ecs::bundle::Bundle;
-use bevy::prelude::{Camera, Camera2d, Camera2dBundle, GlobalTransform, OrthographicProjection, Transform};
-use bevy::render::camera::{CameraRenderGraph, DepthCalculation, ScalingMode};
+use bevy::prelude::{Camera2dBundle, GlobalTransform, OrthographicProjection, Transform};
+use bevy::render::camera::{Camera, CameraRenderGraph, DepthCalculation, ScalingMode};
+use bevy::core_pipeline::core_2d::{Camera2d};
 use bevy::render::primitives::Frustum;
 use bevy::render::view::VisibleEntities;
 
