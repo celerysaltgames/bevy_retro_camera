@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use bevy_retro_camera::prelude::*;
+use bevy_retro_camera::{RetroCameraBundle, RetroCameraPlugin};
 
 // Create a stage label that will be used for our game logic stage
 #[derive(StageLabel, Debug, Eq, Hash, PartialEq, Clone)]
