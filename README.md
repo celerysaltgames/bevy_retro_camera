@@ -9,7 +9,7 @@
     <em>( Screenshot of <a href="https://rafaelmatos.itch.io/epic-rpg-world-pack-free-demoancient-ruins">Epic RPG World - Ancient Ruins </a> rendered with Bevy and this crate )</em>
 </div>
 
-![bounty bros game screenshot](./docs/images/bounty_bros.png)
+![Epic RPG screenshot](./docs/images/epic_rpg.png)
 
 Bevy Retro camera is a 2D, pixel-perfect camera for Bevy.  It does work for **Bevy 0.8**.
 
