@@ -30,9 +30,11 @@ fn main() {
         .add_startup_system(setup)
 }
 
-// Configure your startup system like this
+// Configure your startup system
 fn setup(mut commands: Commands) {
-    commands.spawn_bundle(RetroCameraBundle::fixed_height(240.0));
+    let height: f32 = 240.0;  // Viewport size
+    let scale: f32 = 1.0;  // Viewport scaling factor
+    commands.spawn_bundle(RetroCameraBundle::fixed_height(height, scale));
 }
 ```
 
@@ -45,4 +47,5 @@ fn setup(mut commands: Commands) {
 ## Inspired by
 
 - The excellent [Bevy Cheatbook](https://bevy-cheatbook.github.io/cookbook/custom-projection.html) about custom projections.
+- Bevy's [Camera and Viewport update](https://github.com/bevyengine/bevy/commit/ae0ccfb4f6d41d2033be03b48e2538d1cf0cd86f).
 - The  _RetroCameraBundle_ of [Bevy Retrograde](https://crates.io/crates/bevy_retrograde)
