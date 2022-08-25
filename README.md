@@ -6,7 +6,7 @@
 
 
 <div align="center">
-    <em>( Screenshot of <a href="https://rafaelmatos.itch.io/epic-rpg-world-pack-free-demoancient-ruins">Epic RPG World - Ancient Ruins </a> rendered with Bevy and this crate )</em>
+    <em>( Screenshot of <a href="https://rafaelmatos.itch.io/epic-rpg-world-pack-free-demoancient-ruins">Epic RPG World - Ancient Ruins</a> rendered with Bevy and this crate )</em>
 </div>
 
 ![Epic RPG screenshot](./docs/images/epic_rpg.png)
