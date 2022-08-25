@@ -21,7 +21,7 @@ pub struct RetroCameraBundle {
 
 impl RetroCameraBundle {
     fn new(scale: f32, scaling_mode: ScalingMode) -> Self {
-        // Modify the projection
+        // Create a custom projection
         let orthographic_projection = OrthographicProjection {
             scale,
             scaling_mode,
@@ -29,7 +29,7 @@ impl RetroCameraBundle {
             ..Default::default()
         };
 
-        // And copy the rest of the components from the default 2D camera
+        // Apply on a default Camera2d Bundle
         let bundle = Camera2dBundle::default();
         Self {
             camera_render_graph: bundle.camera_render_graph,
@@ -44,12 +44,14 @@ impl RetroCameraBundle {
     }
 
     /// Create a camera with a fixed width in pixels and a height determined by the window aspect
-    pub fn fixed_width(width: f32) -> Self {
-        Self::new(width / 2.0, ScalingMode::FixedHorizontal(1.0))
+    pub fn fixed_width(width: f32, scale: Option<f32>) -> Self {
+        let scale = scale.unwrap_or(1.0);
+        Self::new(width, ScalingMode::FixedHorizontal(scale))
     }
 
     /// Create a camera with a fixed height in pixels and a width determined by the window aspect
-    pub fn fixed_height(height: f32) -> Self {
-        Self::new(height / 2.0, ScalingMode::FixedVertical(1.0))
+    pub fn fixed_height(height: f32, scale: Option<f32>) -> Self {
+        let scale = scale.unwrap_or(1.0);
+        Self::new(height, ScalingMode::FixedVertical(scale))
     }
 }
