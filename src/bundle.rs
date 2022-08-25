@@ -6,11 +6,11 @@ use bevy::render::primitives::Frustum;
 use bevy::render::view::VisibleEntities;
 
 
-/// 2D camera with easy controls for sizing the screen
+/// 2D pixel-art camera with easy settings
 #[derive(Bundle)]
 pub struct RetroCameraBundle {
     pub camera_render_graph: CameraRenderGraph,
-    pub projection: OrthographicProjection,
+    pub orthographic_projection: OrthographicProjection,
     pub visible_entities: VisibleEntities,
     pub frustum: Frustum,
     pub transform: Transform,
@@ -21,7 +21,7 @@ pub struct RetroCameraBundle {
 
 impl RetroCameraBundle {
     fn new(scale: f32, scaling_mode: ScalingMode) -> Self {
-        // Modify the projection
+        // Create a custom projection
         let orthographic_projection = OrthographicProjection {
             scale,
             scaling_mode,
@@ -29,11 +29,11 @@ impl RetroCameraBundle {
             ..Default::default()
         };
 
-        // And copy the rest of the components from the default 2D camera
+        // Apply on a default Camera2d Bundle
         let bundle = Camera2dBundle::default();
         Self {
             camera_render_graph: bundle.camera_render_graph,
-            projection: orthographic_projection,
+            orthographic_projection,
             visible_entities: bundle.visible_entities,
             frustum: bundle.frustum,
             transform: bundle.transform,
@@ -43,13 +43,18 @@ impl RetroCameraBundle {
         }
     }
 
-    /// Create a camera with a fixed width in pixels and a height determined by the window aspect
-    pub fn fixed_width(width: f32) -> Self {
-        Self::new(width / 2.0, ScalingMode::FixedHorizontal(1.0))
+    /// Create a camera with a fixed width in pixels and a height determined by the window aspect.
+    pub fn fixed_width(width: f32, scale: f32) -> Self {
+        Self::new(width, ScalingMode::FixedHorizontal(scale))
     }
 
-    /// Create a camera with a fixed height in pixels and a width determined by the window aspect
-    pub fn fixed_height(height: f32) -> Self {
-        Self::new(height / 2.0, ScalingMode::FixedVertical(1.0))
+    /// Create a camera with a fixed height in pixels and a width determined by the window aspect.
+    pub fn fixed_height(height: f32, scale: f32) -> Self {
+        Self::new(height, ScalingMode::FixedVertical(scale))
+    }
+
+    /// Switch automatically between fixed width and fixed height depending on window's aspect ratio.
+    pub fn fixed_auto(size: f32, min_width: f32, min_height: f32) -> Self {
+        Self::new(size, ScalingMode::Auto {min_width, min_height})
     }
 }
