@@ -44,14 +44,12 @@ impl RetroCameraBundle {
     }
 
     /// Create a camera with a fixed width in pixels and a height determined by the window aspect
-    pub fn fixed_width(width: f32, scale: Option<f32>) -> Self {
-        let scale = scale.unwrap_or(1.0);
+    pub fn fixed_width(width: f32, scale: f32) -> Self {
         Self::new(width, ScalingMode::FixedHorizontal(scale))
     }
 
     /// Create a camera with a fixed height in pixels and a width determined by the window aspect
-    pub fn fixed_height(height: f32, scale: Option<f32>) -> Self {
-        let scale = scale.unwrap_or(1.0);
+    pub fn fixed_height(height: f32, scale: f32) -> Self {
         Self::new(height, ScalingMode::FixedVertical(scale))
     }
 }
